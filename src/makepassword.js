@@ -21,7 +21,7 @@ function makepassword(passwordFileName, passwordEncFileName) {
 
 
 if (require.main === module) {
-    makepassword('./password.txt', './password2.enc.txt')
+    makepassword('./password.txt', './password.enc.txt')
 }
 
 module.exports = {makepassword};
