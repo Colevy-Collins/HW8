@@ -3,31 +3,25 @@ const fs = require('fs');
 const {readFile, writeFile, hash} = require('./utility')
 
 function makepassword(passwordFileName, passwordEncFileName) {
+    let inputFromFile = readFile(passwordFileName);
+    let emailPasswordHashedPair = []
 
-    function makepassword(passwordFileName, passwordEncFileName) {
+    for( let i = 0; i < inputFromFile.length; i++){
+        let emailPasswordPair = inputFromFile[i].split(":")
+        emailPasswordPair[1] = hash(emailPasswordPair[1])
 
-        let inputFromFile = readFile(passwordFileName);
-        let emailPasswordHashedPair
+        let email = emailPasswordPair[0]
+        let password = emailPasswordPair[1]
 
-        for( let i = 0; i < inputFromFile; i++){
-            let emailPasswordPair = inputFromFile[i].split(":")
-            emailPasswordPair[1] = hash(emailPasswordPair[1])
+        emailPasswordHashedPair[i] = email + ":" + password
 
-            let email = emailPasswordPair[0]
-            let password = eamilPasswordPair[1]
-
-            emailPasswordPair[i] = email + ":" + password
-
-            emailPasswordHashedPair = emailPasswordPair
-        }
-
-        writeFile(emailPasswordHashedPair, "password.enc.txt")
     }
+    writeFile(emailPasswordHashedPair, passwordEncFileName)
 }
 
 
 if (require.main === module) {
-    makepassword('./password.txt', './password.enc.txt')
+    makepassword('./password.txt', './password2.enc.txt')
 }
 
 module.exports = {makepassword};
