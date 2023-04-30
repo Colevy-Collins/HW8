@@ -20,7 +20,7 @@ function passwordjs() {
 
         if (email === emailIn) {
             if (passwordIn === password) {
-                return true 
+                return true
             } else {
                 return false
             }
@@ -28,6 +28,8 @@ function passwordjs() {
     }
 
     return false
+
+
 }
 
 if (require.main === module) {

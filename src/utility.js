@@ -9,7 +9,8 @@ function readFile(fileName) {
     }
     try {
         var text = fs.readFileSync(fileName).toString('utf-8');
-        var textByLine = text.split("\n"); //textByline is an array
+        // edit made here: Changed \n to \r\n
+        var textByLine = text.split("\r\n"); //textByline is an array
         return textByLine; // returns array
     } catch (err) {
         console.log(err)
@@ -18,7 +19,8 @@ function readFile(fileName) {
 
 function writeFile(ar, fileName) {
     try {
-        var res = ar.join("\n")
+        // edit made here: Changed \n to \r\n
+        var res = ar.join("\r\n")
         fs.writeFileSync(fileName, res)
     } catch (err) {
         console.log(err)

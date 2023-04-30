@@ -8,6 +8,7 @@ function makepassword(passwordFileName, passwordEncFileName) {
 
     for( let i = 0; i < inputFromFile.length; i++){
         let emailPasswordPair = inputFromFile[i].split(":")
+        //emailPasswordPair[1].replace("\r", "")
         emailPasswordPair[1] = hash(emailPasswordPair[1])
 
         let email = emailPasswordPair[0]
