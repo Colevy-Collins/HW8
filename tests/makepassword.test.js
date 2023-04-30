@@ -27,7 +27,7 @@ describe("makepassword should create file", () => {
 
     // 1. Make sure password.enc.txt does not exist before running the function
 
-    test('Check if password.enc.txt exists',() => {
+    test('Check if password.enc.txt dose not exists',() => {
         expect(fs.existsSync(encFileName)).toBe(false);
 
         p.makepassword(fileName, encFileName)
