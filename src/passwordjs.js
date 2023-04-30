@@ -17,7 +17,6 @@ function passwordjs() {
         let emailPasswordPair = inputFromFile[i].split(":")
         let emailIn = emailPasswordPair[0]
         let passwordIn = emailPasswordPair[1]
-        let hasEmail
 
         if (email === emailIn) {
             if (passwordIn === password) {
@@ -29,8 +28,6 @@ function passwordjs() {
     }
 
     return false
-
-
 }
 
 if (require.main === module) {
